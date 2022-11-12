@@ -5,6 +5,7 @@ const Paragraph = () => {
 
     const [para, setPara] = useState("");
     const [length, setLength] = useState(20);
+    const [index, setIndex] = useState(0);
 
     function randomNumberGenerator(min, max) {
         let x = Math.floor((Math.random() * max) + min);
@@ -39,6 +40,27 @@ const Paragraph = () => {
     function randomParagraph() {
         setPara(randomTextGenerator(length));
     }
+
+    // async function highlightIndex() {
+    //     setPara(para);
+    //     console.log(para);
+    //     const charArray = para.split('');
+    //     setIndex(10);
+    //     var text1 = "";
+    //     var highlighted = "";
+    //     var text2 = "";
+    //     // charArray[index] = 'Z';
+    //     console.log(charArray.length);
+    //     // var text = "";
+    //     for(var i=0; i<index; i++) {
+    //         text1 += charArray[i]; 
+    //     }
+    //     highlighted += charArray[index];
+    //     for(var j=index+1; j<charArray.length; j++) {
+    //         text2 += charArray[j]; 
+    //     }
+    //     await setPara(text1);
+    // }
 
 
     return (
