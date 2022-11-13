@@ -4,8 +4,25 @@ import { useState } from 'react';
 const Paragraph = () => {
 
     const [para, setPara] = useState("");
-    const [length, setLength] = useState(20);
-    const [index, setIndex] = useState(0);
+
+    const para1 = `An aim is a goal or objective to achieve in life.
+    In order to succeed in life, one must have a goal.
+    My aim in life is to be a teacher. 
+    Teaching is a noble and responsible profession. 
+    I have come to know that the ever-increasing misery and distress, 
+    are due to the ignorance and illiteracy of the people of our country. 
+    So I have decided to spread education among the masses as much as
+    possible within my humble power.`;
+
+    const para2 =  `Human life is a mixture of weal and woe, 
+    smiles and tears. However, once what had seemed to be a 
+    memorable day turned out to be the saddest day of my life. 
+    We had planned for a picnic with all our classmates after the 
+    examination on the bank of the river Ganga. We started early in 
+    the morning and reached at 10 am. After the cooking was completed, 
+    we wished to take a bath in the Ganga.`;
+
+    const paras = [para1, para2];
 
     function randomNumberGenerator(min, max) {
         let x = Math.floor((Math.random() * max) + min);
@@ -17,28 +34,28 @@ const Paragraph = () => {
         return String.fromCharCode(code + int);
     }
 
-    function randomTextGenerator(len) {
-        var text = "";
-        var cnt = 0;
-        while(cnt < len) {
-            const wordLen = randomNumberGenerator(2, 7);
-            cnt += wordLen;
-            for (var i = 0; i < wordLen; i++) {
-                text += intToChar(randomNumberGenerator(0, 26));
-            }
-            text += " ";
-        }
-        return text;
-    }
+    // function randomTextGenerator(len) {
+    //     var text = "";
+    //     var cnt = 0;
+    //     while (cnt < len) {
+    //         const wordLen = randomNumberGenerator(2, 7);
+    //         cnt += wordLen;
+    //         for (var i = 0; i < wordLen; i++) {
+    //             text += intToChar(randomNumberGenerator(0, 26));
+    //         }
+    //         text += " ";
+    //     }
+    //     return text;
+    // }
 
-    const handleInput = event => {
-        setLength(event.target.value);
+    // const handleInput = event => {
+    //     setLength(event.target.value);
 
-        console.log('value is:', event.target.value);
-    }
+    //     console.log('value is:', event.target.value);
+    // }
 
     function randomParagraph() {
-        setPara(randomTextGenerator(length));
+        setPara(paras[randomNumberGenerator(0, 2)]);
     }
 
     // async function highlightIndex() {
@@ -65,7 +82,7 @@ const Paragraph = () => {
 
     return (
         <div className="para">
-            <ul>
+            {/* <ul>
                 <li>Enetr number of approx characters you want in the paragraph</li>
             </ul>
             <input
@@ -75,7 +92,7 @@ const Paragraph = () => {
                 onChange={handleInput}
                 value={length}
             />
-            <br></br>
+            <br></br> */}
             <button onClick={randomParagraph}>Generate Paragraph</button>
             <p>{para}</p>
         </div>
