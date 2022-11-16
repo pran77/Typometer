@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <h1>Typometer</h1>
-      <Paragraph />
+      {/* <Paragraph /> */}
       <Inputarea />
     </div>
   );
