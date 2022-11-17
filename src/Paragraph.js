@@ -85,7 +85,7 @@ const Paragraph = (props) => {
                     return <Word 
                     text={word}
                     active={index===props.index}
-                    correct={null}
+                    correct={props.correctwordarr[props.index]}
                     />
                 })}
             </p>

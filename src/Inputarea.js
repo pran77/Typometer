@@ -21,12 +21,13 @@ function Inputarea(props){
             setUserInput('');
 
             // check correct word
-            // setcorrectwordarray(data=> {
-            //     const word=value.trim();
-            //     const newresult=[...data]
-            //     newresult[activeWordIndex] = word === props.wordsarr[activeWordIndex];
-            //     return newresult;
-            // });
+            setcorrectwordarray(data=> {
+                const word=value.trim();
+                const newresult=[...data]
+                newresult[activeWordIndex] = word === props.words[activeWordIndex];
+                return newresult;
+
+            });
             
         }
         else if(value.endsWith(', ')){
@@ -46,7 +47,7 @@ function Inputarea(props){
 
     return(
         <div className='Inputarea'>
-            <Paragraph index={activeWordIndex}  />
+            <Paragraph index={activeWordIndex} correctwordarr={correctwordarray}/>
            <textarea className='textregion'  name="textarea" rows="15" cols="95" 
         placeholder='Enter your text'  autoComplete="off" onChange={(e)=>processInput(e.target.value)} ></textarea>
        
