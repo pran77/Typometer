@@ -1,15 +1,12 @@
-import './App.css';
-import Inputarea from './Inputarea';
-import Paragraph from './Paragraph';
+// import './App.css';
+// import InputAndParagraph from "./InputAndParagraph";
 
-function App() {
-  return (
-    <div className="App">
-      <h1>Typometer</h1>
-      {/* <Paragraph /> */}
-      <Inputarea />
-    </div>
-  );
-}
+// function App() {
+//   return (
+//     <div className="App">
+//       <InputAndParagraph />
+//     </div>
+//   );
+// }
 
-export default App;
+// export default App;
