@@ -1,16 +1,20 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./App.css";
-import { useState } from "react";
+import { useState ,useEffect} from "react";
 import "./index.css";
 
 function Word(props) {
   const { text, active, correct, isGenerated } = props;
 
+  // const rerender=useRef(0)
+  // useEffect(()=>{
+  //   rerender.current+=1
+  // })
   // console.log(correct);
   if(isGenerated) {
 
     if (active) {
-      return <span className="active">{text} </span>;
+      return <span className="active">{text}</span>;
     }
 
     return <span>{text} </span>;
@@ -32,23 +36,52 @@ function Word(props) {
     return <span>{text} </span>;
 
   }
+};
+
+function Timer(props){
+  const [timeElasped,settimeElasped]=useState(0);
+  
+  useEffect(()=>{
+    if(props.startCounting){
+      setInterval(()=>{
+       settimeElasped(oldtime=>oldtime+1);
+      },1000);
+    }
+    else{
+      settimeElasped(0);
+    }
+  },[props.startCounting]);
+
+  return <h3 align="left">Speed: {timeElasped}</h3>
 }
-
-
+// Word=React.memo(Word);
 
 function InputAndParagraph() {
   const [para, setPara] = useState("");
   const [activeWordIndex, setActiveWordIndex] = useState(0);
   const [correctwordarray, setcorrectwordarray] = useState([]);
   const [highlightedWordArray, setHighlightedWordArray] = useState([]);
+  const [startCounting,setStartCounting]=useState(false);
+  // const [timeElasped,settimeElasped]=useState(0);
+
+  // function Timer(props){
+  //   // const [timeElasped,settimeElasped]=useState(0);
+  
+  //   useEffect(()=>{
+  //     if(props.startCounting){
+  //       setInterval(()=>{
+  //        settimeElasped(oldtime=>oldtime+1);
+  //       },1000);
+  //     }
+  //   },[props.startCounting]);
+  
+  //   return <h3 align="left">Speed: {timeElasped}</h3>
+  // }
 
   function processInput(value) {
-    // setcorrectwordarray(data => {
-    //   const word = value.trim();
-    //   const newresult = [...data];
-    //   newresult[activeWordIndex] = word === words[activeWordIndex];
-    //   return newresult;
-    // });
+    if(!startCounting){
+      setStartCounting(true);
+    }
 
     if (value.endsWith(' ')) {
       //console.log('index before = ', activeWordIndex);
@@ -61,10 +94,6 @@ function InputAndParagraph() {
         var colorArray = highlightedWordArray;
         colorArray.push(data);
         setHighlightedWordArray(colorArray)
-        // console.log("new result before = ", highlightedWordArray);
-        // console.log('index after = ', activeWordIndex);
-        // console.log('word in array = ', words[activeWordIndex]);
-        // console.log('word typed = ', word);
         const compareWords = word.split(' ');
         highlightedWordArray[activeWordIndex] = compareWords[compareWords.length - 1] === words[activeWordIndex];
         // console.log("new result after = ", highlightedWordArray);
@@ -108,6 +137,7 @@ the morning and reached at 10 am. After the cooking was completed, we wished to 
     // setidx(props.idx=0)
     // console.log(para);
     // const words = para.split(' ');
+    setStartCounting(false);
     const textarea = document.getElementById('isEmpty');
     textarea.value = '';
   }
@@ -116,6 +146,9 @@ the morning and reached at 10 am. After the cooking was completed, we wished to 
   return (
     <div className="para">
       <h1>Typometer</h1>
+      <Timer 
+      startCounting={startCounting}
+      />
       <button onClick={randomParagraph}>Generate Paragraph</button>
       <p>
         {words.map((word, index) => {
