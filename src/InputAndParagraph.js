@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import "./App.css";
-import { useState ,useEffect} from "react";
+import { useState, useEffect} from "react";
 import "./index.css";
 
 function Word(props) {
@@ -14,7 +14,7 @@ function Word(props) {
   if(isGenerated) {
 
     if (active) {
-      return <span className="active">{text}</span>;
+      return <span className="active">{text} </span>;
     }
 
     return <span>{text} </span>;
@@ -39,20 +39,18 @@ function Word(props) {
 };
 
 function Timer(props){
-  const [timeElasped,settimeElasped]=useState(0);
-  
+  const {startCounting, currentTime, setTime} = props;
   useEffect(()=>{
-    if(props.startCounting){
-      setInterval(()=>{
-       settimeElasped(oldtime=>oldtime+1);
+    if(startCounting) {
+      setTimeout(()=>{
+       setTime(currentTime+1);
       },1000);
+    } else {
+      setTime(0);
     }
-    else{
-      settimeElasped(0);
-    }
-  },[props.startCounting]);
+  });
 
-  return <h3 align="left">Speed: {timeElasped}</h3>
+  return <h3 align="left">Speed: {currentTime} </h3>
 }
 // Word=React.memo(Word);
 
@@ -61,7 +59,8 @@ function InputAndParagraph() {
   const [activeWordIndex, setActiveWordIndex] = useState(0);
   const [correctwordarray, setcorrectwordarray] = useState([]);
   const [highlightedWordArray, setHighlightedWordArray] = useState([]);
-  const [startCounting,setStartCounting]=useState(false);
+  const [startCounting, setStartCounting] =  useState(false);
+  const [timeElasped, setTimeElasped] = useState(0);
   // const [timeElasped,settimeElasped]=useState(0);
 
   // function Timer(props){
@@ -147,7 +146,9 @@ the morning and reached at 10 am. After the cooking was completed, we wished to 
     <div className="para">
       <h1>Typometer</h1>
       <Timer 
-      startCounting={startCounting}
+      startCounting = {startCounting}
+      currentTime = {timeElasped}
+      setTime = {setTimeElasped}
       />
       <button onClick={randomParagraph}>Generate Paragraph</button>
       <p>
