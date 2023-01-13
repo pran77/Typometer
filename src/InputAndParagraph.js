@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import "./App.css";
 import { useState, useEffect} from "react";
 import "./index.css";
@@ -6,11 +6,6 @@ import "./index.css";
 function Word(props) {
   const { text, active, correct, isGenerated } = props;
 
-  // const rerender=useRef(0)
-  // useEffect(()=>{
-  //   rerender.current+=1
-  // })
-  // console.log(correct);
   if(isGenerated) {
 
     if (active) {
@@ -21,11 +16,11 @@ function Word(props) {
 
   } else {
 
-    if (correct === true) {
+    if (correct === 1) {
       return <span className="correct">{text} </span>;
     }
 
-    if (correct === false) {
+    if (correct === 2) {
       return <span className="incorrect">{text} </span>;
     }
 
@@ -57,70 +52,79 @@ function Timer(props){
 function InputAndParagraph() {
   const [para, setPara] = useState("");
   const [activeWordIndex, setActiveWordIndex] = useState(0);
-  const [correctwordarray, setcorrectwordarray] = useState([]);
+  //const [correctwordarray, setcorrectwordarray] = useState([]);
   const [highlightedWordArray, setHighlightedWordArray] = useState([]);
   const [startCounting, setStartCounting] =  useState(false);
   const [timeElasped, setTimeElasped] = useState(0);
-  // const [timeElasped,settimeElasped]=useState(0);
-
-  // function Timer(props){
-  //   // const [timeElasped,settimeElasped]=useState(0);
-  
-  //   useEffect(()=>{
-  //     if(props.startCounting){
-  //       setInterval(()=>{
-  //        settimeElasped(oldtime=>oldtime+1);
-  //       },1000);
-  //     }
-  //   },[props.startCounting]);
-  
-  //   return <h3 align="left">Speed: {timeElasped}</h3>
-  // }
+  const [backspaceFlag, setBackspaceFlag] = useState(false);
+  const [inputBeforeBackspace, setInputBeforeBackspace] = useState("");
 
   function processInput(value) {
     if(!startCounting){
       setStartCounting(true);
     }
 
-    if (value.endsWith(' ')) {
-      //console.log('index before = ', activeWordIndex);
-      setActiveWordIndex((index) => index + 1);
-      //console.log('index after = ', activeWordIndex);
+    var input = document.getElementById('isEmpty');
+    var colorArray;
+    setBackspaceFlag(false);
 
-      //check correct word
-      setcorrectwordarray(data => {
-        const word = value.trim();
-        var colorArray = highlightedWordArray;
-        colorArray.push(data);
-        setHighlightedWordArray(colorArray)
-        const compareWords = word.split(' ');
-        highlightedWordArray[activeWordIndex] = compareWords[compareWords.length - 1] === words[activeWordIndex];
-        // console.log("new result after = ", highlightedWordArray);
-        return highlightedWordArray;
-      });
+    input.onkeydown = function(event) {
+        var key = event.keyCode || event.charCode;
+        if(key === 8 || key === 46) {
+          console.log("Backspace pressed");
+          setBackspaceFlag(true);
+        } 
+    };
+    
+    if(!backspaceFlag) {
+      setInputBeforeBackspace(value);
+      //console.log(inputBeforeBackspace);
+    }
+
+    if ((inputBeforeBackspace.endsWith(' ') || value.endsWith(' ')) && backspaceFlag) {
+
+      if(value.endsWith(' ')) {
+        setInputBeforeBackspace(value);
+        return;
+      }
+
+      setActiveWordIndex((index) => index - 1);
+      console.log(activeWordIndex);
+      console.log(highlightedWordArray);
+      setInputBeforeBackspace(value);
+      setBackspaceFlag(false);
+
+      colorArray = highlightedWordArray;
+      console.log("length = "+colorArray.length);
+      colorArray[activeWordIndex - 1] = 0;
+      setHighlightedWordArray(colorArray)
+
+    } else if (value.endsWith(' ')) {
+
+      setActiveWordIndex((index) => index + 1);
+      console.log(activeWordIndex);
+      console.log(highlightedWordArray);
+
+      const word = value.trim();
+      colorArray = highlightedWordArray;
+      console.log("length = "+colorArray.length);
+      colorArray.push(0);
+      //setHighlightedWordArray(colorArray)
+      const compareWords = word.split(' ');
+      if(compareWords[compareWords.length - 1] === words[activeWordIndex]) {
+        colorArray[activeWordIndex] = 1;
+      } else {
+        colorArray[activeWordIndex] = 2;
+      }
+      setHighlightedWordArray(colorArray);
+
     }
   }
-  //   } else if (value.endsWith(', ')) {
-  //     setActiveWordIndex((index) => index + 1);
-  //     setUserInput('');
-      
-  //   } else if (value.endsWith('. ')) {
-  //     setActiveWordIndex((index) => index + 1);
-  //     setUserInput('');
-  //   } else {
-  //     setUserInput('');
-  //   }
-  // }
 
   // Generate Paragraphs
-  const para1 = `An aim is a goal or objective to achieve in life. 
-In order to succeed in life, one must have a goal. My aim in life is to be a teacher.Teaching is a noble and responsible profession. 
-I have come to know that the ever-increasing misery and distress, are due to the ignorance and illiteracy of the people of our country. So I have  to spread education among the masses as much as 
-possible within my humble power`;
+  const para1 = `An aim is a goal or objective to achieve in life. In order to succeed in life, one must have a goal. My aim in life is to be a teacher. Teaching is a noble and responsible profession. I have come to know that the ever-increasing misery and distress, are due to the ignorance and illiteracy of the people of our country. So I have to spread education among the masses as much as possible within my humble power.`;
 
-  const para2 = `Human life is a mixture of weal and woe, smiles and tears. However, once what had seemed to be a memorable day turned out to be the saddest day of my life. We had planned for a picnic with all our classmates after the 
-examination on the bank of the river Ganga. We started early in 
-the morning and reached at 10 am. After the cooking was completed, we wished to take a bath in the Ganga`;
+  const para2 = `Human life is a mixture of weal and woe, smiles and tears. However, once what had seemed to be a memorable day turned out to be the saddest day of my life. We had planned for a picnic with all our classmates after the examination on the bank of the river Ganga. We started early in the morning and reached at 10 am. After the cooking was completed, we wished to take a bath in the Ganga`;
 
   const paras = [para1, para2];
 
@@ -158,7 +162,7 @@ the morning and reached at 10 am. After the cooking was completed, we wished to 
             <Word
               text = {word}
               active = {index === activeWordIndex}
-              correct = {correctwordarray[index]}
+              correct = {highlightedWordArray[index]}
               isGenerated = {activeWordIndex === 0 ? true : false}  
             />
           );
