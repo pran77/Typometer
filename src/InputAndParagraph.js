@@ -56,8 +56,12 @@ function InputAndParagraph() {
   const [highlightedWordArray, setHighlightedWordArray] = useState([]);
   const [startCounting, setStartCounting] =  useState(false);
   const [timeElasped, setTimeElasped] = useState(0);
+  const [timeTaken, setTimeTaken] = useState(0);
   const [backspaceFlag, setBackspaceFlag] = useState(false);
   const [inputBeforeBackspace, setInputBeforeBackspace] = useState("");
+  const [correctWordCount, setCorrectWordCount] = useState(0);
+  const [inCorrectWordCount, setInCorrectWordCount] = useState(0);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   function processInput(value) {
     if(!startCounting){
@@ -82,6 +86,16 @@ function InputAndParagraph() {
     }
 
     if ((inputBeforeBackspace.endsWith(' ') || value.endsWith(' ')) && backspaceFlag) {
+
+      if(inputBeforeBackspace.endsWith('  ')) {
+        setActiveWordIndex((index) => index - 1);
+        setInputBeforeBackspace(value);
+        colorArray = highlightedWordArray;
+        console.log("length = "+ colorArray.length);
+        colorArray[activeWordIndex - 1] = 0;
+        setHighlightedWordArray(colorArray)
+        return;
+      }
 
       if(value.endsWith(' ')) {
         setInputBeforeBackspace(value);
@@ -140,9 +154,45 @@ function InputAndParagraph() {
     // setidx(props.idx=0)
     // console.log(para);
     // const words = para.split(' ');
+    setCorrectWordCount(0);
+    setInCorrectWordCount(0);
     setStartCounting(false);
+    setIsSubmitted(false);
     const textarea = document.getElementById('isEmpty');
     textarea.value = '';
+  }
+
+  function Submit(){
+    setTimeTaken(timeElasped);
+    setStartCounting(false);
+    setIsSubmitted(true);
+    setCorrectWordCount(0);
+    setInCorrectWordCount(0);
+
+    for (let num of highlightedWordArray) {
+      if(num===1){
+        setCorrectWordCount((count) => count + 1);
+      }
+      if(num===2){
+        setInCorrectWordCount((count) => count + 1);
+      }
+
+    }
+    // console.log("correctWord = "+correctWordCount)
+    // console.log("Time = "+timeElasped)
+  }
+
+  function DisplayMetrics(props) {
+    if(props.checkSubmit) {
+      return (
+        <div>
+          <h3 align="center"> Speed : {Math.floor(((correctWordCount + inCorrectWordCount) / timeTaken)*60)} </h3>
+          <h3 align="center"> Accuracy : {parseFloat((correctWordCount / (correctWordCount + inCorrectWordCount))*100).toFixed(2)} </h3>
+          <h3 align="center"> Correct Word : {correctWordCount} </h3>
+          <h3 align="center"> Incorrect Word : {inCorrectWordCount} </h3>
+        </div>
+      )
+    }
   }
 
   const words = para.split(" ");
@@ -180,7 +230,11 @@ function InputAndParagraph() {
         placeholder="Enter your text"
         autoComplete="off"
         onChange={(e) => processInput(e.target.value)}
-      ></textarea>
+      ></textarea><br></br><br></br>
+      <button onClick={Submit}>Submit</button>
+      <DisplayMetrics 
+      checkSubmit = {isSubmitted}
+      />
     </div>
   );
 }
