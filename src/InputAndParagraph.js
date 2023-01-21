@@ -45,7 +45,7 @@ function Timer(props){
     }
   });
 
-  return <h3 align="left">Timer: {currentTime} </h3>
+  return <h3 align="left">Timer: {parseInt(currentTime / 60)}:{currentTime % 60} </h3>
 }
 // Word=React.memo(Word);
 
@@ -61,6 +61,7 @@ function InputAndParagraph() {
   const [inputBeforeBackspace, setInputBeforeBackspace] = useState("");
   const [correctWordCount, setCorrectWordCount] = useState(0);
   const [inCorrectWordCount, setInCorrectWordCount] = useState(0);
+  const [incorrectWordCountWhileTyping, setInCorrectWordCountWhileTyping] = useState(0);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLastWordTyped, setIsLastWordTyped] = useState(false);
 
@@ -123,7 +124,7 @@ function InputAndParagraph() {
 
       const word = value.trim();
       colorArray = highlightedWordArray;
-      console.log("length = "+colorArray.length);
+      // console.log("length = "+colorArray.length);
       colorArray.push(0);
       //setHighlightedWordArray(colorArray)
       const compareWords = word.split(' ');
@@ -131,6 +132,7 @@ function InputAndParagraph() {
         colorArray[activeWordIndex] = 1;
       } else {
         colorArray[activeWordIndex] = 2;
+        setInCorrectWordCountWhileTyping((count) => count + 1);
       }
       setHighlightedWordArray(colorArray);
 
@@ -183,6 +185,7 @@ function InputAndParagraph() {
     // const words = para.split(' ');
     setCorrectWordCount(0);
     setInCorrectWordCount(0);
+    setInCorrectWordCountWhileTyping(0);
     setStartCounting(false);
     setIsSubmitted(false);
     setIsLastWordTyped(false);
@@ -215,7 +218,8 @@ function InputAndParagraph() {
       return (
         <div>
           <h3 align="center"> Speed : {Math.floor(((correctWordCount + inCorrectWordCount) / timeTaken)*60)} </h3>
-          <h3 align="center"> Accuracy : {parseFloat((correctWordCount / (correctWordCount + inCorrectWordCount))*100).toFixed(2)} </h3>
+          <h3 align="center"> Time Taken : {parseInt(timeTaken / 60)}:{timeTaken % 60} </h3>
+          <h3 align="center"> Accuracy : {parseFloat((correctWordCount / (correctWordCount + incorrectWordCountWhileTyping))*100).toFixed(2)} </h3>
           <h3 align="center"> Correct Word : {correctWordCount} </h3>
           <h3 align="center"> Incorrect Word : {inCorrectWordCount} </h3>
         </div>
