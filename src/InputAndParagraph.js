@@ -46,7 +46,7 @@ function Timer(props){
     }
   });
 
-  return <h3 align="left">Speed: {currentTime} </h3>
+  return <h3 align="left">Timer: {parseInt(currentTime / 60)}:{currentTime % 60} </h3>
 }
 // Word=React.memo(Word);
 
@@ -62,7 +62,9 @@ function InputAndParagraph() {
   const [inputBeforeBackspace, setInputBeforeBackspace] = useState("");
   const [correctWordCount, setCorrectWordCount] = useState(0);
   const [inCorrectWordCount, setInCorrectWordCount] = useState(0);
+  const [incorrectWordCountWhileTyping, setInCorrectWordCountWhileTyping] = useState(0);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLastWordTyped, setIsLastWordTyped] = useState(false);
 
   function processInput(value) {
     if(!startCounting){
@@ -71,6 +73,7 @@ function InputAndParagraph() {
 
     var input = document.getElementById('isEmpty');
     var colorArray;
+    var paraLength = words.length;
     setBackspaceFlag(false);
 
     input.onkeydown = function(event) {
@@ -122,7 +125,7 @@ function InputAndParagraph() {
 
       const word = value.trim();
       colorArray = highlightedWordArray;
-      console.log("length = "+colorArray.length);
+      // console.log("length = "+colorArray.length);
       colorArray.push(0);
       //setHighlightedWordArray(colorArray)
       const compareWords = word.split(' ');
@@ -130,10 +133,34 @@ function InputAndParagraph() {
         colorArray[activeWordIndex] = 1;
       } else {
         colorArray[activeWordIndex] = 2;
+        setInCorrectWordCountWhileTyping((count) => count + 1);
       }
       setHighlightedWordArray(colorArray);
 
     }
+
+    // console.log("length of para = "+paraLength);
+    // console.log("active index = "+activeWordIndex);
+    // console.log(highlightedWordArray[activeWordIndex - 1]);
+    if(paraLength === activeWordIndex + 1 && highlightedWordArray[activeWordIndex] === 1) {
+      setTimeTaken(timeElasped);
+      setStartCounting(false);
+      setIsSubmitted(true);
+      setIsLastWordTyped(true);
+      setCorrectWordCount(0);
+      setInCorrectWordCount(0);
+
+      for (let num of highlightedWordArray) {
+        if(num===1){
+          setCorrectWordCount((count) => count + 1);
+        }
+        if(num===2){
+          setInCorrectWordCount((count) => count + 1);
+        }
+      }
+
+    }
+
   }
 
   // Generate Paragraphs
@@ -141,7 +168,9 @@ function InputAndParagraph() {
 
   const para2 = `Human life is a mixture of weal and woe, smiles and tears. However, once what had seemed to be a memorable day turned out to be the saddest day of my life. We had planned for a picnic with all our classmates after the examination on the bank of the river Ganga. We started early in the morning and reached at 10 am. After the cooking was completed, we wished to take a bath in the Ganga`;
 
-  const paras = [para1, para2];
+  const para3 = `Nature loves symmetry. Don't chase people, chase your goals.`;
+
+  const paras = [para1, para2, para3];
 
   function randomNumberGenerator(min, max) {
     let x = Math.floor(Math.random() * max + min);
@@ -149,7 +178,7 @@ function InputAndParagraph() {
   }
 
   function randomParagraph() {
-    setPara(paras[randomNumberGenerator(0, 2)]);
+    setPara(paras[randomNumberGenerator(0, 3)]);
     setActiveWordIndex(0);
     setHighlightedWordArray([]);
     // setidx(props.idx=0)
@@ -157,8 +186,10 @@ function InputAndParagraph() {
     // const words = para.split(' ');
     setCorrectWordCount(0);
     setInCorrectWordCount(0);
+    setInCorrectWordCountWhileTyping(0);
     setStartCounting(false);
     setIsSubmitted(false);
+    setIsLastWordTyped(false);
     const textarea = document.getElementById('isEmpty');
     textarea.value = '';
   }
@@ -184,11 +215,12 @@ function InputAndParagraph() {
   }
 
   function DisplayMetrics(props) {
-    if(props.checkSubmit) {
+    if(props.checkSubmit || props.isLastWord) {
       return (
         <div>
           <h3 align="center"> Speed : {Math.floor(((correctWordCount + inCorrectWordCount) / timeTaken)*60)} </h3>
-          <h3 align="center"> Accuracy : {parseFloat((correctWordCount / (correctWordCount + inCorrectWordCount))*100).toFixed(2)} </h3>
+          <h3 align="center"> Time Taken : {parseInt(timeTaken / 60)}:{timeTaken % 60} </h3>
+          <h3 align="center"> Accuracy : {parseFloat((correctWordCount / (correctWordCount + incorrectWordCountWhileTyping))*100).toFixed(2)} </h3>
           <h3 align="center"> Correct Word : {correctWordCount} </h3>
           <h3 align="center"> Incorrect Word : {inCorrectWordCount} </h3>
         </div>
@@ -236,6 +268,7 @@ function InputAndParagraph() {
       <button onClick={Submit}>Submit</button>
       <DisplayMetrics 
       checkSubmit = {isSubmitted}
+      isLastWord = {isLastWordTyped}
       />
     </div>
     
