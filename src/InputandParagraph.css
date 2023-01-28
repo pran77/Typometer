@@ -1,0 +1,22 @@
+#root ,html ,body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    box-sizing: border-box;
+}
+.para{
+    height: 100%;
+    background: url('C:\Typometer\Typometer\public\images\typbg.jpg');
+    /* background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+.heading{
+    color: white;
+    margin-top: 0px;
+    padding: 2px;
+}
+
+

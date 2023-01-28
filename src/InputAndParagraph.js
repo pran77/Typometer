@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import { useState, useEffect} from "react";
 import "./index.css";
+import "./InputandParagraph.css";
 
 function Word(props) {
   const { text, active, correct, isGenerated } = props;
@@ -197,8 +198,10 @@ function InputAndParagraph() {
 
   const words = para.split(" ");
   return (
+    
     <div className="para">
-      <h1>Typometer</h1>
+      
+      <h1 className="heading">Typometer</h1>
       <Timer 
       startCounting = {startCounting}
       currentTime = {timeElasped}
@@ -218,7 +221,6 @@ function InputAndParagraph() {
           );
         })};
       </p>
-
       <br /> <br />
 
       <textarea
@@ -236,6 +238,7 @@ function InputAndParagraph() {
       checkSubmit = {isSubmitted}
       />
     </div>
+    
   );
 }
 
