@@ -9,10 +9,10 @@ export default function About() {
         <div className='a-wrapper'>
             <h1 className='a-title' id='heading'>About</h1>
           <div className='a-text'>
-            <b >Typometer is a typing test website. A user can check his/her typing speed based on the test given.
-              In this test either user will complete the test or he/she can submit it in between. On the basis of time occurs user will get to know the result
+            <b >Typometer is a typing test website. A user can check his/her typing speed based on the generated paragraph.
+              In the test either user will complete the test or user can submit whenever user wants. On the basis of time elapsed user will get to know the result
               of the test after submission. 
-              Your result includes the Speed, Time taken, Accuracy, number of correct and incorrect words.
+              The result includes the Speed, Time taken, Accuracy, number of correct and incorrect words.
             </b>
           </div>
           <h2 className='feature-head'>Let's see the features...</h2>
