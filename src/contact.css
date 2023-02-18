@@ -1,0 +1,22 @@
+.main-Footer{
+    color: white;
+    background-color: rgb(81, 74, 74);
+    display: flex;
+}
+.row{
+    display: flex;
+    margin-left: 20px;
+}
+.col{
+    margin-left: 140px;
+    padding-left: 30px;
+    align-items: center;
+    text-align: center;
+}
+.main-Footer hr{
+    width: 100%;
+}
+.row .col-sm{
+    width: 100%;
+    padding-left: 190px;
+}

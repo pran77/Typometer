@@ -46,12 +46,12 @@ function Timer(props){
     }
   });
 
-  return <h3 align="left">Timer: {parseInt(currentTime / 60)}:{currentTime % 60} </h3>
+  return <h3 className="timer" align="left">Time: {parseInt(currentTime / 60)}:{currentTime % 60} </h3>
 }
 // Word=React.memo(Word);
 
 function InputAndParagraph() {
-  const [para, setPara] = useState("");
+  const [para, setPara] = useState('');
   const [activeWordIndex, setActiveWordIndex] = useState(0);
   //const [correctwordarray, setcorrectwordarray] = useState([]);
   const [highlightedWordArray, setHighlightedWordArray] = useState([]);
@@ -164,21 +164,22 @@ function InputAndParagraph() {
   }
 
   // Generate Paragraphs
-  const para1 = `An aim is a goal or objective to achieve in life. In order to succeed in life, one must have a goal. My aim in life is to be a teacher. Teaching is a noble and responsible profession. I have come to know that the ever-increasing misery and distress, are due to the ignorance and illiteracy of the people of our country. So I have to spread education among the masses as much as possible within my humble power.`;
+  const para1 = "An aim is a goal or objective to achieve in life. In order to succeed in life one must have a goal. My aim in life is to be a teacher. Teaching is a noble and responsible profession."
 
-  const para2 = `Human life is a mixture of weal and woe, smiles and tears. However, once what had seemed to be a memorable day turned out to be the saddest day of my life. We had planned for a picnic with all our classmates after the examination on the bank of the river Ganga. We started early in the morning and reached at 10 am. After the cooking was completed, we wished to take a bath in the Ganga`;
+  const para2 = "Human life is a mixture of weal and woe smiles and tears. However once what had seemed to be a memorable day turned out to be the saddest day of my life. We had planned for a picnic with all our classmates after the examination on the bank of the river Ganga."
 
-  const para3 = `Nature loves symmetry. Don't chase people, chase your goals.`;
+  const para3 = "There are a number of reasons you may need a block of text and when you do a random paragraph can be the perfect solution. If you happen to be a web designer and you need some random text to show in your layout a random paragraph can be an excellent way to do this."
 
-  const paras = [para1, para2, para3];
+  const para4 = "The best way to use these random paragraphs is to generate a few and see how they can help with whatever project you're currently pursuing. You should be able to figure out quickly if this tool will be beneficial for your project or needs."
+
+  const paras = [para1, para2, para3, para4];
 
   function randomNumberGenerator(min, max) {
     let x = Math.floor(Math.random() * max + min);
     return x;
   }
-
   function randomParagraph() {
-    setPara(paras[randomNumberGenerator(0, 3)]);
+    setPara(paras[randomNumberGenerator(0, 4)]);
     setActiveWordIndex(0);
     setHighlightedWordArray([]);
     // setidx(props.idx=0)
@@ -215,14 +216,14 @@ function InputAndParagraph() {
   }
 
   function DisplayMetrics(props) {
-    if(props.checkSubmit || props.isLastWord) {
+    if(props.checkSubmit || props.isLastWordTyped) {
       return (
-        <div>
-          <h3 align="center"> Speed : {Math.floor(((correctWordCount + inCorrectWordCount) / timeTaken)*60)} </h3>
-          <h3 align="center"> Time Taken : {parseInt(timeTaken / 60)}:{timeTaken % 60} </h3>
-          <h3 align="center"> Accuracy : {parseFloat((correctWordCount / (correctWordCount + incorrectWordCountWhileTyping))*100).toFixed(2)} </h3>
-          <h3 align="center"> Correct Word : {correctWordCount} </h3>
-          <h3 align="center"> Incorrect Word : {inCorrectWordCount} </h3>
+        <div className="results">
+          <h3 className="res-heading" align="center"> Speed : {Math.floor(((correctWordCount + inCorrectWordCount) / timeTaken)*60)} Wpm</h3>
+          <h3 className="res-heading" align="center"> Time Taken : {parseInt(timeTaken / 60)}:{timeTaken % 60} </h3>
+          <h3 className="res-heading" align="center"> Accuracy : {parseFloat((correctWordCount / (correctWordCount + incorrectWordCountWhileTyping))*100).toFixed(2)} </h3>
+          <h3 className="res-heading" align="center"> Correct Word : {correctWordCount} </h3>
+          <h3 className="res-heading" align="center"> Incorrect Word : {inCorrectWordCount} </h3>
         </div>
       )
     }
@@ -232,14 +233,17 @@ function InputAndParagraph() {
   return (
     
     <div className="para">
-      
-      <h1 className="heading">Typometer</h1>
+      {/* <section className="waveDesign">
+      <svg xmlns="http://www.w3.org/2000/svg" className="waves" viewBox="0 0 1440 320"><path fill="#fff" fill-opacity="1" d="M0,256L80,266.7C160,277,320,299,480,304C640,309,800,299,960,261.3C1120,224,1280,160,1360,128L1440,96L1440,
+      320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path></svg>
+      </section> */}
+      <div className="heading"></div>
       <Timer 
       startCounting = {startCounting}
       currentTime = {timeElasped}
       setTime = {setTimeElasped}
       />
-      <button onClick={randomParagraph}>Generate Paragraph</button>
+      <button className="butt" onClick={randomParagraph}>Get Paragraph</button>
       <p>
         {words.map((word, index) => {
           // console.log(correctwordarray[index]);
@@ -251,7 +255,7 @@ function InputAndParagraph() {
               isGenerated = {activeWordIndex === 0 ? true : false}  
             />
           );
-        })};
+        })}
       </p>
       <br /> <br />
 
@@ -265,14 +269,14 @@ function InputAndParagraph() {
         autoComplete="off"
         onChange={(e) => processInput(e.target.value)}
       ></textarea><br></br><br></br>
-      <button onClick={Submit}>Submit</button>
+      <button className="submit" onClick={Submit}>Submit</button>
       <DisplayMetrics 
       checkSubmit = {isSubmitted}
       isLastWord = {isLastWordTyped}
       />
+      
     </div>
     
   );
 }
-
 export default InputAndParagraph;
