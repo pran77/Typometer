@@ -1,0 +1,35 @@
+#root ,html ,body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    box-sizing: border-box;
+}
+.para{
+    background: linear-gradient(45deg,
+    rgba(204, 101, 99, 0.75),
+    rgba(69, 132, 195, 0.75)), url('/public/images/typing.jpg');
+    /* background-color: #d5d535; */
+    /* background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+/* .para {
+    text-align: center;
+    font-weight: lighter;
+  }
+  
+  .para li {
+    list-style-type: none;
+    font-weight: normal;
+  }
+  
+  .para p {
+    text-align: left;
+    border: 2px solid red;
+    padding: 5px;
+    margin: 20px;
+  } */
+
+

@@ -1,0 +1,38 @@
+.main-Footer{
+    color: white;
+    background-color: rgb(81, 74, 74);
+    /* display: flex; */
+}
+
+.row{
+    display: flex;
+    margin-left: 180px;
+}
+
+.col{
+    margin-left: 140px;
+    padding-left: 30px;
+    align-items: center;
+    text-align: center;
+}
+
+.col .list-unstyled {
+    list-style-type: none;
+    text-decoration: none;
+    align-items: center;
+    text-align: center;
+}
+
+.row-bottom {
+    display: flex;
+    margin-left: 270px;
+}
+
+.row-bottom .col-sm{
+    padding-left: 190px;
+}
+
+.list-heading {
+    font-weight: bold;
+    margin: 10px;
+}
