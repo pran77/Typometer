@@ -17,6 +17,7 @@
     display: inline-block;
     overflow: hidden;
     white-space: nowrap;
+    margin-top: 18px;
 }
 .a .a-wrapper .a-text{
    margin-top: 0px;
@@ -25,10 +26,12 @@
    align-items: center;
    padding-left: 300px;
    overflow: hidden;
+   font-size: 20px;
 }
 /* .a .a-wrapper .a-text{
     font-weight: bolder;
 } */
 .a .features{
     display: flex;
+    margin-top: -8px;
 }

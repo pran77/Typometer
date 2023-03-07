@@ -13,6 +13,7 @@ import {
   Route,
   Navigate
 } from "react-router-dom";
+import Profile from "./components/Profile.jsx";
 
 
 function App() {
@@ -30,6 +31,8 @@ function App() {
     <Route path='/register' element={user ? <Navigate to = "/"/> : <Register />} />
 
     <Route path='/contact' element={<Contact/>} />
+
+    <Route path='/profile' element={<Profile/>} />
 
     </Routes> 
   </Router>

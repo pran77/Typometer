@@ -74,7 +74,6 @@ export default function Register() {
                         <button className="loginButtonRegister" onClick={handleLoginRedirect}>
                             Login Into Account
                         </button>
-                    
                     </form>
                 </div>
             </div>

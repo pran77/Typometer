@@ -1,8 +1,6 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Baloo Bhai 2', cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
@@ -16,6 +14,7 @@ code {
 .timer{
   margin-left: 30px;
   position: relative;
+  font-size: 44px;
 }
 
 .results{
@@ -27,7 +26,9 @@ code {
 .results .res-heading{
   display: inline;
   padding: 30px;
-  color: rgb(8, 12, 8);
+  color: white;
+  font-size: 25px;
+  font-weight: 800;
   /* padding-top: 10px;
   margin-top: 10px; */
 }
@@ -55,10 +56,10 @@ code {
   /* width: 40%; */
   /* border: 2px solid red; */
   font-weight: 600;
-  font-size: 20px;
+  font-size: 27px;
   padding: 5px;
   margin: 50px;
-  margin-top: 25px;
+  margin-top: 10px;
   color: black;
   /* position: fixed; */
   /* margin-left: 500px; */
@@ -75,6 +76,7 @@ code {
 .para .butt{
     border: 2px solid black;
     /* padding: 15px; */
+    margin-top: -50px;
     margin-bottom: 10px;
     margin-left: -80px;
     border-radius: 5px;
@@ -98,13 +100,13 @@ code {
   border: 2px solid rgb(54, 54, 183);
   outline: none;
   font-family: "Heebo", sans-serif;
-  font-weight: 500;
-  font-size: 16px;
+  font-weight: bold;
+  font-size: 20px;
   line-height: 1.4;
   width: 700px;
   height: 230px;
   margin-right: 67px;
-  margin-top: -60px;
+  margin-top: -80px;
   transition: all 0.2s;
 }
 .para .textregion:hover {
@@ -125,7 +127,7 @@ code {
   background-color: #d0e55b;
   font-weight: 500;
   margin-top: 0px;
-  margin-right: 70px;
+  margin-right: 108px;
   justify-content: center;
   align-items: center;
   height: 30px;
