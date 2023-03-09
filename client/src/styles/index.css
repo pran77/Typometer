@@ -14,21 +14,21 @@ code {
 .timer{
   margin-left: 30px;
   position: relative;
-  font-size: 44px;
+  font-size: 41px;
 }
 
 .results{
   /* padding-top: 10px; */
-  margin-top: 2px;
+  margin-top: 4px;
   text-align: center;
 }
 
 .results .res-heading{
   display: inline;
   padding: 30px;
-  color: white;
+  color: black;
   font-size: 20px;
-  font-weight: 800;
+  font-weight: 600;
   /* padding-top: 10px;
   margin-top: 10px; */
 }
@@ -39,7 +39,7 @@ code {
   /* background-image: url("C:\Typometer\Typometer\public\images\typing4.jpeg"); */
   /* width: 100vh; */
   /* background: #25d366; */
-  height: 100vh;
+  /* height: 100vh; */
   background-size: cover;
   background-position: center;
   overflow: hidden;
@@ -59,7 +59,7 @@ code {
   font-size: 22px;
   padding: 5px;
   margin: 50px;
-  margin-top: 10px;
+  margin-top: 7px;
   color: black;
   /* position: fixed; */
   /* margin-left: 500px; */
@@ -76,7 +76,7 @@ code {
 .para .butt{
     border: 2px solid black;
     /* padding: 15px; */
-    margin-top: -50px;
+    margin-top: -59px;
     margin-bottom: 10px;
     margin-left: -80px;
     border-radius: 5px;
@@ -126,7 +126,7 @@ code {
   font-size:large;
   background-color: #d0e55b;
   font-weight: 500;
-  margin-top: 0px;
+  margin-top: -10px;
   margin-right: 97px;
   justify-content: center;
   align-items: center;
