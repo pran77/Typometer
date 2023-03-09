@@ -218,7 +218,7 @@ function InputAndParagraph() {
   function DisplayMetrics(props) {
     if(props.checkSubmit || props.isLastWordTyped) {
       return (
-        <div className="results">
+        <div className="results" id="red-id">
           <h3 className="res-heading" align="center"> Speed : {Math.floor(((correctWordCount + inCorrectWordCount) / timeTaken)*60)} Wpm</h3>
           <h3 className="res-heading" align="center"> Time Taken : {parseInt(timeTaken / 60)}:{timeTaken % 60} </h3>
           <h3 className="res-heading" align="center"> Accuracy : {parseFloat((correctWordCount / (correctWordCount + incorrectWordCountWhileTyping))*100).toFixed(2)} </h3>
@@ -269,7 +269,7 @@ function InputAndParagraph() {
         autoComplete="off"
         onChange={(e) => processInput(e.target.value)}
       ></textarea><br></br><br></br>
-      <button className="submit" onClick={Submit}>Submit</button>
+      <button className="submit" onClick={Submit}><a href="#res-id">Submit</a></button>
       <DisplayMetrics 
       checkSubmit = {isSubmitted}
       isLastWord = {isLastWordTyped}
