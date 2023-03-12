@@ -6,7 +6,6 @@ import { AuthContext } from './../context/AuthContext';
 
 
 export default function Login() {
-
     const navigate = useNavigate();
     const email = useRef();
     const password = useRef();
@@ -25,7 +24,6 @@ export default function Login() {
                 setErrorMessage("Invalid credentials! Please try again.")
             })
     }
-
     const handleRegisterRedirect = (e) => {
         navigate('/register')
     }
@@ -66,7 +64,5 @@ export default function Login() {
                     </form>
                 </div>
             </div>
-        
         </div>
-    )
-}
+    )}

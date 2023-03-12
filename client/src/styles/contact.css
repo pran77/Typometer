@@ -1,6 +1,7 @@
 .main-Footer{
     color: white;
-    background-color: rgb(81, 74, 74);
+    height: 30vh;
+    background-color: rgb(70, 66, 66);
     /* display: flex; */
 }
 
@@ -23,13 +24,21 @@
     text-align: center;
 }
 
+.col .list-unstyled .list-heading{
+    font-size: 22px;
+    color: rgb(224, 156, 68);
+}
+.col .list-unstyled .social-list{
+    color: white;
+    text-decoration-line: none;
+}
 .row-bottom {
     display: flex;
     margin-left: 270px;
 }
 
 .row-bottom .col-sm{
-    padding-left: 190px;
+    padding-left: 270px;
 }
 
 .list-heading {

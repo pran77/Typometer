@@ -1,0 +1,26 @@
+.card{
+    margin-left: 10px;
+    padding-left: 16px; 
+    /* margin-right: 20px; */
+    /* padding-right: 7px; */
+    padding-top: 16px;
+}
+.card .card-style{
+    width: 20rem;
+}
+.card .card-img{
+    width: 18rem;
+    height: 18rem;
+    border: 3px solid white;
+    border-radius: 12px;
+}
+.card .card-title{
+    color: black;
+    font-size: 20px;
+    font-weight: bolder;
+}
+.card .card-text{
+    color: brown;
+    font-size: 17px;
+    font-weight: bold;
+}

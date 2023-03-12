@@ -6,8 +6,8 @@
 }
 .para{
     background: linear-gradient(45deg,
-    rgba(204, 101, 99, 0.75),
-    rgba(69, 132, 195, 0.75)), url('/public/images/typing.jpg');
+    rgba(185, 67, 65, 0.75),
+    rgba(46, 121, 196, 0.75)), url('/public/images/typing.jpg');
     /* background-color: #d5d535; */
     /* background-size: cover;
     background-position: center;

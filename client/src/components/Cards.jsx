@@ -2,16 +2,15 @@
 import Card from 'react-bootstrap/Card';
 import "../styles/cards.css"
 // import {typtest1} from "./img/typtest1.png"
-function Cards({img}) {
+function Cards({img,title,text}) {
   return (
     <div className='card'>
     <Card className='card-style'>
       <Card.Img className='card-img' src={img} />
       <Card.Body>
-        <Card.Title className='card-title'>Card Title</Card.Title>
+        <Card.Title className='card-title'>{title}</Card.Title>
         <Card.Text className='card-text'>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
+          {text}
         </Card.Text>
         {/* <Button variant="primary">Go somewhere</Button> */}
       </Card.Body>

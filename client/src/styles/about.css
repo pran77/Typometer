@@ -1,5 +1,5 @@
 .a{
-    height: 100vh;
+    /* height: 100vh; */
     display: flex;
     background: linear-gradient(45deg,
     rgba(218, 126, 124, 0.75),
@@ -8,15 +8,16 @@
     /* align-items: center; */
 }
 .a h1{
-    margin-left: 750px;
+    margin-left: 664px;
     font-size: 40px;
 }
 .a .a-wrapper .feature-head{
-    font-size: 35px;
+    font-size: 30px;
     padding-left: 50px;
     display: inline-block;
     overflow: hidden;
     white-space: nowrap;
+    margin-top: 16px;
 }
 .a .a-wrapper .a-text{
    margin-top: 0px;
@@ -25,10 +26,12 @@
    align-items: center;
    padding-left: 300px;
    overflow: hidden;
+   font-size: 20px;
 }
 /* .a .a-wrapper .a-text{
     font-weight: bolder;
 } */
 .a .features{
     display: flex;
+    margin-top: -8px;
 }
