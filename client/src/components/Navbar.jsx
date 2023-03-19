@@ -18,7 +18,7 @@ export default function Navbar(){
                     <li className="topbar-link"><a href='/'>Home</a></li>
                     <li className="topbar-link"><a href='#about'>About</a></li>
                     <li className="topbar-link"><a href='#contacts'>Contact</a></li>
-                    <li className="topbar-link"><a href='/login'>Login</a></li>
+                    {/* <li className="topbar-link"><a href='/login'>Login</a></li> */}
                     <li className="topbar-link"><a href='/register'>Sign Up</a></li>
                 </ul>
                 

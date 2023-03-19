@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&family=League+Spartan:wght@300&family=Raleway:wght@100&family=Saira+Stencil+One&family=Source+Serif+4:wght@300&display=swap');
+
+
+.o{
+    /* background: linear-gradient(45deg,
+    rgba(185, 67, 65, 0.75),
+    rgba(46, 121, 196, 0.75)), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUrHwo9yJo1N1_PA7xcpexHkaNyPyYHMW_pg&usqp=CAU'); */
+
+    background-image: url("https://e1.pxfuel.com/desktop-wallpaper/94/45/desktop-wallpaper-person-typing-on-black-keyboard-computer-keyboard.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    height: 100vh;
+}
+
+.o-wrapper .o-heading{
+    margin-top: 0px;
+    font-size: 55px;
+    font-family: 'Source Serif 4', serif;
+   font-weight: 600;
+   color: #fdfdfe;
+   text-shadow: 0px 0px 5px #b393d3, 0px 0px 10px #b393d3, 0px 0px 10px #b393d3,
+    0px 0px 20px #b393d3;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+
+.profile-text {
+    color: #fcbc18;
+    z-index: 0;
+    display: inline;
+    font-size: 48px;
+    font-weight: 800;
+    border-right: 4px solid #fcbc18;
+    white-space: nowrap;
+    animation: blinkTextCursor 500ms infinite;
+    line-height: 0.5em;
+    margin-top: 180px;
+    margin-left: 100px;
+  }
+
+  .o-category{
+    color: white;
+    
+  }
+  .o-wrapper .o-category h1{
+    color: #608265;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 300px;
+    margin-left: 110px;
+    font-size: 2.5vw;
+    text-align: center;
+    text-shadow: 0px 0px 5px #dad1e1, 0px 0px 10px #dad1e1, 0px 0px 10px #dad1e1,
+    0px 0px 20px #dad1e1;
+  }
+  .o-category ul li{
+        color: #d3ba16;
+        margin-top: 200px;
+        padding-top: 30px;
+        margin-left: 120px;
+        font-size: 2vw;
+        font-weight: bold;
+        list-style-type: none;
+  }
+
+  .o-category ul .li2{
+    margin-top: 0px;
+  }
+  
+  

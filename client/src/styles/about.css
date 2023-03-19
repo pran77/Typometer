@@ -1,14 +1,15 @@
 .a{
-    /* height: 100vh; */
+    height: 100vh;
     display: flex;
     background: linear-gradient(45deg,
     rgba(218, 126, 124, 0.75),
     rgba(113, 164, 215, 0.75)), url('/public/images/typing.jpg');
-    /* display: flex; */
-    /* align-items: center; */
+    
 }
 .a h1{
-    margin-left: 664px;
+    position: center;
+    align-items: center;
+    text-align: center;
     font-size: 40px;
 }
 .a .a-wrapper .feature-head{
@@ -27,6 +28,7 @@
    padding-left: 300px;
    overflow: hidden;
    font-size: 20px;
+   margin-left: 25px;
 }
 /* .a .a-wrapper .a-text{
     font-weight: bolder;

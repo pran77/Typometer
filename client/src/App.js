@@ -14,6 +14,7 @@ import {
   Navigate
 } from "react-router-dom";
 import Profile from "./components/Profile.jsx";
+import Firstpage from "./components/Firstpage.jsx";
 
 
 function App() {
@@ -21,23 +22,21 @@ function App() {
   return (
   <Router>
     <Routes>
+    <Route path='/' element={<Firstpage/>} />
 
-    <Route path='/' element={<Home/>} />
+    <Route path='/home' element={<Home/>} />
 
     <Route path='/about' element={<About/>} />    
 
-    <Route path='/login' element={user ? <Navigate to = "/"/> : <Login />} />
+    <Route path='/login' element={user ? <Navigate to = "/home"/> : <Login />} />
 
-    <Route path='/register' element={user ? <Navigate to = "/"/> : <Register />} />
+    <Route path='/register' element={user ? <Navigate to = "/login"/> : <Register />} />
 
     <Route path='/contact' element={<Contact/>} />
 
     <Route path='/profile' element={<Profile/>} />
-
     </Routes> 
   </Router>
-  
   )
 }
-
 export default App;
