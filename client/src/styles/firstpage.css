@@ -6,7 +6,7 @@
     rgba(185, 67, 65, 0.75),
     rgba(46, 121, 196, 0.75)), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUrHwo9yJo1N1_PA7xcpexHkaNyPyYHMW_pg&usqp=CAU'); */
 
-    background-image: url("https://e1.pxfuel.com/desktop-wallpaper/94/45/desktop-wallpaper-person-typing-on-black-keyboard-computer-keyboard.jpg");
+    background-image: url("https://wallpapers.com/images/hd/blue-back-lit-computer-keyboard-9h2dkhm51ts8bjzj.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
@@ -45,7 +45,7 @@
     
   }
   .o-wrapper .o-category h1{
-    color: #608265;
+    color: #406145;
     position: absolute;
     top: 0;
     left: 0;
@@ -68,6 +68,15 @@
 
   .o-category ul .li2{
     margin-top: 0px;
+  }
+
+  .o-category ul li a{
+    text-decoration: none;
+    color: tomato   ;
+  }
+
+  .o-category ul li a:hover{
+    color: #A0A04D;
   }
   
   
