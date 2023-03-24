@@ -1,5 +1,6 @@
 .a{
-    height: 140vh;
+    height: 120vh;
+    overflow: hidden;
     display: flex;
     background: linear-gradient(45deg,
     rgba(218, 126, 124, 0.75),
