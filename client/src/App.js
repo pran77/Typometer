@@ -13,7 +13,7 @@ import {
   Route,
   Navigate
 } from "react-router-dom";
-import Profile from "./components/Profile.jsx";
+import Profilepage from "./components/Profilepage.jsx";
 import Firstpage from "./components/Firstpage.jsx";
 
 
@@ -24,7 +24,7 @@ function App() {
     <Routes>
     <Route path='/' element={<Firstpage/>} />
 
-    <Route path='/home' element={<Home/>} />
+    <Route path='/home' element={<Home/>  } />
 
     <Route path='/about' element={<About/>} />    
 
@@ -34,7 +34,7 @@ function App() {
 
     <Route path='/contact' element={<Contact/>} />
 
-    <Route path='/profile' element={<Profile/>} />
+    <Route path='/profile' element={<Profilepage />} />
     </Routes> 
   </Router>
   )

@@ -9,6 +9,7 @@ const userRoute = require("./routes/users"); //"./routes/users"
 const authRoute = require("./routes/auth");
 const multer = require("multer");
 const cors = require("cors");
+const PORT = process.env.PORT || 4000
 
 dotenv.config();
 mongoose.connect(
@@ -38,6 +39,6 @@ app.get("/", (req, res) => {
     res.send("Welcome to homepage")
 })
 
-app.listen(4000, () => {
+app.listen(PORT, () => {
     console.log("Backend Server initiated")
 })
