@@ -3,6 +3,7 @@
     padding: 0;
     height: 100vh;
     box-sizing: border-box;
+    /* font-size: 10px; */
 }
 .para{
     background: linear-gradient(45deg,

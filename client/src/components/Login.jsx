@@ -12,6 +12,7 @@ export default function Login() {
     
     const {isFetching, dispatch} = useContext(AuthContext);
     const [errorMessage, setErrorMessage] = useState();
+    const [isLoginSuccess, setIsLoginSuccess] = useState(true);
 
     const handleClick = (e) => {
         e.preventDefault();
@@ -21,6 +22,7 @@ export default function Login() {
                 // if (error) {
                 //     email.current.setCustomValidity("User Login Failed");
                 // }
+                setIsLoginSuccess(false);
                 setErrorMessage("Invalid credentials! Please try again.")
             })
     }

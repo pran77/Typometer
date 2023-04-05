@@ -46,3 +46,7 @@
 .topbarIcons{
     display: flex;
 }
+
+.topbar-link View a{
+    padding: 0px;
+}
