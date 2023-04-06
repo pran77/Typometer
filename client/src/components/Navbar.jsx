@@ -5,12 +5,11 @@ import "../styles/navbar.css";
 // import Profile from "../../img/profile.png"
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
-import {AccountCircle} from "@mui/icons-material";
+import { AccountCircle } from "@mui/icons-material";
 // import Profilepage from "./Profilepage";
-import Home from "../components/Home"
+// import Home from "../components/Home"
 import {
   View,
-  Text,
 } from 'react-native';
 
 export default function Navbar(){
@@ -34,7 +33,7 @@ export default function Navbar(){
                     <li className="topbar-link">
                       <a href='/profile'> 
                         <View>
-                          {user ? <AccountCircle/> :<a href='/register' classname="sign-up">Sign Up</a>}
+                          {user ? <AccountCircle /> :<a href='/register' classname="sign-up">Sign Up</a>}
                         </View>
                       </a>
                     </li>

@@ -28,11 +28,11 @@ function App() {
 
     <Route path='/about' element={<About/>} />    
 
-    <Route path='/login' element={user ? <Navigate to = "/home"/> : <Login />} />
+    <Route path='/login' element={user ? <Navigate to = '/home' /> : <Login />} />
 
-    <Route path='/register' element={user ? <Navigate to = "/login"/> : <Register />} />
+    <Route path='/register' element={user ? <Navigate to = '/login' /> : <Register />} />
 
-    <Route path='/contact' element={<Contact/>} />
+    <Route path='/contact' element={<Contact />} />
 
     <Route path='/profile' element={<Profilepage />} />
     </Routes> 
