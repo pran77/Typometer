@@ -3,6 +3,7 @@
 import Login from "./components/Login.jsx";
 import Register from "./components/Register.jsx";
 import Home from "./components/Home.jsx";
+import GuestHome from "./components/GuestHome.jsx";
 import About from "./components/About.jsx";
 import Contact from "./components/Contact.jsx";
 import { useContext } from "react";
@@ -25,6 +26,8 @@ function App() {
     <Route path='/' element={<Firstpage/>} />
 
     <Route path='/home' element={<Home/>  } />
+
+    <Route path='/ghome' element={<GuestHome/>  } />
 
     <Route path='/about' element={<About/>} />    
 

@@ -81,7 +81,7 @@ export default function Firstpage() {
             <div className='o-category'>
                 <h1 className='cat-head'>Choose the Category! As per your Conscience</h1>
                 <ul className='cat-list'>
-                    <li className='li1'>1.  Check it out as a <a href='/home'>Guest User</a></li>
+                    <li className='li1'>1.  Check it out as a <a href='/ghome'>Guest User</a></li>
                     <li className='li2'>2.  Make the profile ! Build your progress report by <a href='/register'>Register</a></li>
                 </ul>
             </div>

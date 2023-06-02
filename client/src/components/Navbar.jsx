@@ -14,6 +14,14 @@ import {
 
 export default function Navbar(){
   const { user } = useContext(AuthContext);
+  console.log(user);
+  const loggedInUser = sessionStorage.getItem('user');
+  console.log(loggedInUser);
+
+  const handleLogout = () => {
+    sessionStorage.clear();
+  };
+
   return (
     <div className="topbarContainer">
 
@@ -28,12 +36,18 @@ export default function Navbar(){
                     <li className="topbar-link"><a href='/'>Home</a></li>
                     <li className="topbar-link"><a href='#about'>About</a></li>
                     <li className="topbar-link"><a href='#contacts'>Contact</a></li>
-                    {/* <li className="topbar-link"><a href='/login'>Login</a></li> */}
+                    <li className="topbar-link">
+                      <a href='/login'>
+                      <View>
+                        {loggedInUser ? <button onClick={handleLogout}>Logout</button> : <div></div>}
+                      </View>
+                      </a>
+                    </li>
                     {/* <li className="topbar-link"><a href='/register'>Sign Up</a></li> */}
                     <li className="topbar-link">
                       <a href='/profile'> 
                         <View>
-                          {user ? <AccountCircle /> :<a href='/register' classname="sign-up">Sign Up</a>}
+                          {loggedInUser ? <AccountCircle /> : <a href='/register' className="sign-up">Sign Up</a>}
                         </View>
                       </a>
                     </li>
