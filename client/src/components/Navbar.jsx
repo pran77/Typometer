@@ -16,6 +16,7 @@ export default function Navbar(){
   const { user } = useContext(AuthContext);
   console.log(user);
   const loggedInUser = sessionStorage.getItem('user');
+  const users = JSON.parse(loggedInUser)
   console.log(loggedInUser);
 
   const handleLogout = () => {
@@ -39,7 +40,7 @@ export default function Navbar(){
                     <li className="topbar-link">
                       <a href='/login'>
                       <View>
-                        {loggedInUser ? <button onClick={handleLogout}>Logout</button> : <div></div>}
+                        {loggedInUser ? <button onClick={handleLogout} className="logout">Logout</button> : <div>Login</div>}
                       </View>
                       </a>
                     </li>
@@ -47,7 +48,7 @@ export default function Navbar(){
                     <li className="topbar-link">
                       <a href='/profile'> 
                         <View>
-                          {loggedInUser ? <AccountCircle /> : <a href='/register' className="sign-up">Sign Up</a>}
+                          {loggedInUser ?<i className="account-icon"><AccountCircle/><span>{users.username}</span></i>  : <a href='/register' className="sign-up">Sign-Up</a>}
                         </View>
                       </a>
                     </li>

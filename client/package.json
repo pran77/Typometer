@@ -18,9 +18,12 @@
     "react-dom": "^18.2.0",
     "react-native": "^0.71.6",
     "react-native-web": "^0.19.1",
+    "react-particles": "^2.10.1",
     "react-router-dom": "^6.8.1",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
+    "react-tsparticles": "^2.10.1",
     "styled-components": "^5.3.6",
+    "tsparticles": "^2.10.1",
     "typed.js": "^2.0.132",
     "web-vitals": "^2.1.4"
   },
