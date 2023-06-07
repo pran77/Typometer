@@ -48,7 +48,7 @@ export default function Navbar(){
                     <li className="topbar-link">
                       <a href='/profile'> 
                         <View>
-                          {loggedInUser ?<i className="account-icon"><AccountCircle/><span>{users.username}</span></i>  : <a href='/register' className="sign-up">Sign-Up</a>}
+                          {loggedInUser ?<i ><AccountCircle className="account-icon"/><span className="account-user">{users.username}</span></i>  : <a href='/register' className="sign-up">Sign-Up</a>}
                         </View>
                       </a>
                     </li>
