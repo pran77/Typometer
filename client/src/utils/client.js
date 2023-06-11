@@ -4,7 +4,7 @@ import axios from "axios";
 //         ? "https://typometer-backend.onrender.com"
 //         : "http://localhost:4000";
 
-const BASE_URL = "https://typometer-backend.onrender.com";
+const BASE_URL = "http://localhost:4000";
 const client = axios.create({ BASE_URL });
 export default client;
 
