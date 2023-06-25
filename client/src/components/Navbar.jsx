@@ -1,13 +1,8 @@
 import "../styles/navbar.css";
-// import About from "./About";
-// import { Link } from 'react-router-dom';
-// import { Search,Person,Chat,Notifications } from "@mui/icons-material";
-// import Profile from "../../img/profile.png"
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { AccountCircle } from "@mui/icons-material";
-// import Profilepage from "./Profilepage";
-// import Home from "../components/Home"
+
 import {
   View,
 } from 'react-native';

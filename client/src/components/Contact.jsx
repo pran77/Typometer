@@ -1,6 +1,6 @@
 import React from 'react'
 import "../styles/contact.css"
-// import {Instagram} from "@mui/icons-material";
+
 
 export default function Contact() {
   return (

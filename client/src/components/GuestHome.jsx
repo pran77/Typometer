@@ -3,7 +3,7 @@ import GuestNavbar from '../components/GuestNavbar.jsx';
 import InputAndParagraph from '../InputAndParagraph';
 import About from '../components/About.jsx';
 import Contact from '../components/Contact.jsx';
-// import Contact from './Contact';
+
 
 export default function GuestHome() {
   return (

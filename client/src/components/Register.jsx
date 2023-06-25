@@ -2,7 +2,7 @@ import "../styles/Register.css";
 import { useRef } from 'react';
 import { useNavigate } from "react-router-dom";
 import axios from './../utils/client.js';
-// import BASE_URL from "../utils/client.js"
+
 
 export default function Register() {
 
