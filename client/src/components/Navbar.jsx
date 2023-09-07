@@ -1,13 +1,8 @@
 import "../styles/navbar.css";
-// import About from "./About";
-// import { Link } from 'react-router-dom';
-// import { Search,Person,Chat,Notifications } from "@mui/icons-material";
-// import Profile from "../../img/profile.png"
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { AccountCircle } from "@mui/icons-material";
-// import Profilepage from "./Profilepage";
-// import Home from "../components/Home"
+
 import {
   View,
 } from 'react-native';
@@ -16,6 +11,7 @@ export default function Navbar(){
   const { user } = useContext(AuthContext);
   console.log(user);
   const loggedInUser = sessionStorage.getItem('user');
+  const users = JSON.parse(loggedInUser)
   console.log(loggedInUser);
 
   const handleLogout = () => {
@@ -39,7 +35,7 @@ export default function Navbar(){
                     <li className="topbar-link">
                       <a href='/login'>
                       <View>
-                        {loggedInUser ? <button onClick={handleLogout}>Logout</button> : <div></div>}
+                        {loggedInUser ? <button onClick={handleLogout} className="logout">Logout</button> : <div>Login</div>}
                       </View>
                       </a>
                     </li>
@@ -47,7 +43,7 @@ export default function Navbar(){
                     <li className="topbar-link">
                       <a href='/profile'> 
                         <View>
-                          {loggedInUser ? <AccountCircle /> : <a href='/register' className="sign-up">Sign Up</a>}
+                          {loggedInUser ?<i ><AccountCircle className="account-icon"/><span className="account-user">{users.username}</span></i>  : <a href='/register' className="sign-up">Sign-Up</a>}
                         </View>
                       </a>
                     </li>

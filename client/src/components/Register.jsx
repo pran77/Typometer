@@ -3,6 +3,7 @@ import { useRef } from 'react';
 import { useNavigate } from "react-router-dom";
 import axios from './../utils/client.js';
 
+
 export default function Register() {
 
     const username = useRef();
@@ -22,7 +23,7 @@ export default function Register() {
                 password: password.current.value,
             };
             try {
-                await axios.post("http://localhost:4000/api/auth/register", user);
+                await axios.post("https://typometer-backend.onrender.com/api/auth/register", user);
                 navigate("/login");
             } catch (err) {
                 console.log(err);

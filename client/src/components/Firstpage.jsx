@@ -1,8 +1,7 @@
 import React from 'react'
 import '../styles/firstpage.css'
 import { useEffect, useState, useRef } from "react";
-// import { motion } from "framer-motion";
-// import Typed from "typed.js";
+
 export default function Firstpage() {
   const [stage, changeStage] = useState(1);
   const per = useRef();

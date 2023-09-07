@@ -1,7 +1,7 @@
 // import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import "../styles/cards.css"
-// import {typtest1} from "./img/typtest1.png"
+
 function Cards({img,title,text}) {
   return (
     <div className='card'>

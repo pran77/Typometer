@@ -1,3 +1,4 @@
+
 .login{
     width: 100vw;
     height: 100vh;
@@ -8,6 +9,7 @@
     rgba(75, 128, 181, 0.75)), url('/public/images/typing.jpg');
     align-items: center;
     justify-content: center;
+    
 }
 
 .loginWrapper{
