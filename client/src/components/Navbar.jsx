@@ -22,7 +22,7 @@ export default function Navbar(){
     <div className="topbarContainer">
 
         <div className="topbar-left">
-            <span className="logo">
+            <span className="logo logo-md logo-sm">
                 TYPOMETER
             </span>   
         </div>

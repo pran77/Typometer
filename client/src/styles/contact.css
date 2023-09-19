@@ -1,47 +1,27 @@
 .main-Footer{
     color: white;
-    height: 30vh;
     background-color: rgb(56, 46, 46);
-    /* display: flex; */
 }
 
-.row{
-    display: flex;
-    margin-left: 180px;
-}
-
-.col{
-    margin-left: 140px;
-    padding-left: 30px;
-    align-items: center;
-    text-align: center;
-}
-
-.col .list-unstyled {
+.list-unstyled {
     list-style-type: none;
     text-decoration: none;
     align-items: center;
     text-align: center;
 }
 
-.col .list-unstyled .list-heading{
+.list-unstyled .list-heading{
     font-size: 22px;
     color: rgb(224, 156, 68);
+    font-weight: bold;
+    margin: 10px;
 }
-.col .list-unstyled .social-list{
+
+.list-unstyled .social-list{
     color: white;
     text-decoration-line: none;
 }
-.row-bottom {
-    display: flex;
-    margin-left: 270px;
-}
 
-.row-bottom .col-sm{
-    padding-left: 270px;
-}
-
-.list-heading {
-    font-weight: bold;
-    margin: 10px;
+.privacy {
+    text-align: center;
 }

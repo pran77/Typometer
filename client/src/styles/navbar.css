@@ -1,5 +1,4 @@
-
-.topbarContainer{
+.topbarContainer {
     height: 50px;
     width: 100%;
     background-color:rgb(67, 65, 64);
@@ -8,13 +7,13 @@
     position: static;
     top: 0px;
     z-index: 999;
-    /* transition: top 0.3s; */
 }
-.topbar-left{
+
+.topbar-left {
     flex: 3;
-    
 }
-.logo{
+
+.logo {
     font-size: 27px;
     margin-left: 20px;
     font-weight: bold;
@@ -22,7 +21,7 @@
     cursor: pointer;
 }
 
-.topbar-link{
+.topbar-link {
     margin: 0 20px;
     font-size: 18px;
     cursor: pointer;
@@ -35,20 +34,21 @@
     text-decoration-line: none;
 }
 
-.topbar-link:hover{
+.topbar-link:hover {
     color: aqua;
 }
 
-.topbar-links{
+.topbar-links {
     margin-right: 80px;
+    margin-top: 10px;
     color: white;
 }
 
-.topbarIcons{
+.topbarIcons {
     display: flex;
 }
 
-.topbar-links .logout{
+.topbar-links .logout {
     border: none;
     background-color: rgb(67, 65, 64);
     color: white;
@@ -59,13 +59,43 @@
     font-size: 18px;
 }
 
-.account-icon{
+.account-icon {
    position: relative;
    top: 2px;
 }
-i span{
+
+i span {
     position: relative;
     top: 9px;
     font-size: 14px;
     right: 26px;
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+    .logo {
+        font-size: 20px;
+    }
+
+    .topbar-links {
+        margin-right: 40px;
+    }
+
+    .topbar-link {
+        margin-left: 10px;
+    }
+}
+
+@media (max-width: 575px) {
+    .logo {
+        font-size: 16px;
+    }
+
+    .topbar-links {
+        margin-right: 0px;
+    }
+
+    .topbar-link {
+        margin-left: 5px;
+        font-size: 14px;
+    }
 }

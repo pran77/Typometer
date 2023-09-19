@@ -2,6 +2,8 @@ import React from 'react'
 import Cards from './Cards'
 import "../styles/about.css"
 import { images_data } from '../data'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 export default function About() {
   return (
     <div id='about'>
@@ -15,12 +17,15 @@ export default function About() {
               The result includes the Speed, Time taken, Accuracy, number of correct and incorrect words.
             </b>
           </div>
-          <h2 className='feature-head'>Let's see the features...</h2>
-          <div className='features'> 
-           {images_data.map((item) =>(
-                <Cards key={item.id} img={item.img} title={item.title} text={item.text}/>
-           ))}
-            
+          <div className='feature-head'>Let's see the features...</div>
+          <div class='container'>
+            <div class='row'>
+             {images_data.map((item) =>(
+                <div class='col-md'>
+                  <Cards key={item.id} img={item.img} title={item.title} text={item.text}/>
+                </div>
+              ))} 
+            </div>
           </div>
         </div>      
       </div>

@@ -6,10 +6,10 @@ export default function Contact() {
   return (
     <div id="contacts">
     <div className='main-Footer'>
-      <div className='container'>
-        <div className='row'>
+      <div class='container'>
+        <div class='row'>
            
-            <div className="col">
+            <div class="col-4">
                 <ul className='list-unstyled'>
                     <li className='list-heading'>Address</li>
                     <li className='address-list'>Room No. 62</li>
@@ -18,7 +18,7 @@ export default function Contact() {
                 </ul>
             </div>
 
-            <div className="col">
+            <div class="col-4">
                 
                 <ul className='list-unstyled'>
                     <li className='list-heading'>Social Media</li>
@@ -28,7 +28,7 @@ export default function Contact() {
                 </ul>
             </div>
 
-            <div className="col">
+            <div class="col-4">
                 <ul className='list-unstyled'>
                     <li className='list-heading'>Contact Us</li>
                     <li className='contact-list'>+91 6386479832</li>
@@ -39,10 +39,12 @@ export default function Contact() {
             
         </div>
         <div className='line'><hr/></div>
-        <div className="row-bottom">
-            <p className='col-sm'>
-                &copy;{new Date().getFullYear()} Typometer&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp; All rights reserved &nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; &nbsp;&nbsp;Terms of Services &nbsp;&nbsp;&nbsp;&nbsp;  |&nbsp;&nbsp; &nbsp;&nbsp;Privacy
-            </p>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class='col-12' className='privacy'>
+                    &copy;{new Date().getFullYear()} Typometer&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp; All rights reserved &nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; &nbsp;&nbsp;Terms of Services &nbsp;&nbsp;&nbsp;&nbsp;  |&nbsp;&nbsp; &nbsp;&nbsp;Privacy
+                </div>
+            </div>
         </div>
       </div>
     </div>

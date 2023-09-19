@@ -244,7 +244,7 @@ function InputAndParagraph() {
       setTime = {setTimeElasped}
       />
       <button className="butt" onClick={randomParagraph}>Get Paragraph</button>
-      <p>
+      <p className="gen-para gen-para-lg gen-para-md gen-para-sm">
         {words.map((word, index) => {
           // console.log(correctwordarray[index]);
           return (
@@ -261,7 +261,7 @@ function InputAndParagraph() {
 
       <textarea
         id="isEmpty"
-        className="textregion"
+        className="textregion lg md sm"
         name="textarea"
         rows="15"
         cols="95"
