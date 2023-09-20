@@ -39,7 +39,7 @@
 }
 
 .topbar-links {
-    margin-right: 80px;
+    margin-right: 40px;
     margin-top: 10px;
     color: white;
 }
@@ -61,14 +61,20 @@
 
 .account-icon {
    position: relative;
-   top: 2px;
+   top: 0px;
 }
 
 i span {
     position: relative;
-    top: 9px;
-    font-size: 14px;
+    top: 18px;
+    font-size: 12px;
     right: 26px;
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .topbar-links {
+        margin-right: 10px;
+    }
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
@@ -77,11 +83,16 @@ i span {
     }
 
     .topbar-links {
-        margin-right: 40px;
+        margin-right: 10px;
+    }
+
+    .topbar-links .logout {
+        font-size: 14px;
     }
 
     .topbar-link {
-        margin-left: 10px;
+        margin-left: 5px;
+        font-size: 14px;
     }
 }
 
@@ -92,6 +103,10 @@ i span {
 
     .topbar-links {
         margin-right: 0px;
+    }
+
+    .topbar-links .logout {
+        font-size: 14px;
     }
 
     .topbar-link {

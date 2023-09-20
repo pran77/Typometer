@@ -1,7 +1,9 @@
 import "../styles/Register.css";
 import { useRef } from 'react';
 import { useNavigate } from "react-router-dom";
-import axios from './../utils/client.js';
+//import axios from './../utils/client.js';
+import axios from "axios";
+import { SERVER_URL } from './../utils/client.js';
 
 
 export default function Register() {
@@ -23,7 +25,7 @@ export default function Register() {
                 password: password.current.value,
             };
             try {
-                await axios.post("https://typometer-backend.onrender.com/api/auth/register", user);
+                await axios.post(`${SERVER_URL}/api/auth/register`, user);
                 navigate("/login");
             } catch (err) {
                 console.log(err);

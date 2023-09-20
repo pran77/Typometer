@@ -39,7 +39,6 @@ export default function Navbar(){
                       </View>
                       </a>
                     </li>
-                    {/* <li className="topbar-link"><a href='/register'>Sign Up</a></li> */}
                     <li className="topbar-link">
                       <a href='/profile'> 
                         <View>
